@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>En Construcción | monkedsperu</title>
 
-    <!-- Fuente Inter y FontAwesome -->
+    <!-- Fuentes y FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
@@ -42,19 +42,18 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- LOGO CENTRAL COMPLETO Y TOTALMENTE VISIBLE --- */
+        /* --- CABEZA Y LOGO GIGANTE DE FONDO --- */
         .hero-bg-logo {
             position: absolute;
-            top: 52%;
+            top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100%;
-            max-width: 580px;
+            width: 120vw; /* Ajustado para que la cabeza se vea súper grande */
+            max-width: 950px;
             height: auto;
-            max-height: 70vh;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.95; /* Súper nítido en el centro */
+            opacity: 0.95;
         }
 
         /* --- HEADER --- */
@@ -80,29 +79,28 @@
             color: var(--carbon-light);
         }
 
-        /* --- CONTENIDOS MOVIDOS ARRIBA Y ABAJO DEL LOGO --- */
+        /* --- CONTENIDOS SEPARADOS PARA NO TAPAR LA CABEZA --- */
         main {
             position: relative;
             z-index: 5;
             width: 100%;
-            max-width: 700px;
+            max-width: 800px;
             padding: 0 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             margin: auto 0;
-            /* Espacio interno para dar lugar al logo central */
-            min-height: 75vh;
+            min-height: 78vh;
             justify-content: space-between;
         }
 
         .top-content {
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
 
         .main-title {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 900;
             line-height: 1;
             letter-spacing: -0.02em;
@@ -112,7 +110,7 @@
         }
 
         .subtitle {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--carbon-medium);
             letter-spacing: 0.2em;
@@ -124,14 +122,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         /* --- BARRA DE PROGRESO --- */
         .progress-box {
             width: 100%;
             max-width: 360px;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
         }
 
         .progress-track {
@@ -165,7 +163,7 @@
             text-decoration: none;
             padding: 1rem 3rem;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 0.05em;
             border: 2px solid var(--carbon-dark);
@@ -225,13 +223,13 @@
 
         @media (max-width: 640px) {
             .main-title { font-size: 2.2rem; }
-            .hero-bg-logo { max-width: 85vw; }
+            .hero-bg-logo { width: 140vw; max-width: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Logo integro en el centro exacto -->
+    <!-- Cabeza del mono ampliada al máximo -->
     <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-bg-logo">
 
     <header>
@@ -239,13 +237,13 @@
     </header>
 
     <main>
-        <!-- Título principal ubicado ARRIBA del mono -->
+        <!-- Título "UNDER CONSTRUCTION" totalmente separado en la parte superior -->
         <div class="top-content">
             <h1 class="main-title">Under Construction</h1>
             <p class="subtitle">Site nearly ready</p>
         </div>
 
-        <!-- Barra y botón ubicados ABAJO del nombre "monkeds" -->
+        <!-- Barra de progreso y botón ubicados abajo -->
         <div class="bottom-content">
             <div class="progress-box">
                 <div class="progress-track">
