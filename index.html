@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>En Construcción | monkedsperu</title>
 
-    <!-- Fuente Inter y FontAwesome para iconos -->
+    <!-- Fuente Inter y FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
         /* =========================================================
-           1. VARIABLES CSS (70% BLANCO / 30% GRIS CARBÓN)
+           1. VARIABLES Y PALETA DE COLORES
            ========================================================= */
         :root {
             --bg-white: #ffffff;
-            --carbon-dark: #121212;
-            --carbon-medium: #2a2a2a;
+            --carbon-dark: #111111;
+            --carbon-medium: #333333;
             --carbon-light: #666666;
-            --carbon-border: #e2e8f0;
+            --carbon-border: #d0d7de;
             --font-family: 'Inter', system-ui, -apple-system, sans-serif;
             --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -48,7 +48,7 @@
         }
 
         /* =========================================================
-           3. MARCA DE AGUA: logo_y_nombre.svg EN EL FONDO
+           3. MARCA DE AGUA (LOGOTIPO VISIBLE Y NOTABLE)
            ========================================================= */
         body::before {
             content: "";
@@ -56,13 +56,13 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80vw;
-            height: 80vh;
-            background-image: url('logo_y_nombre.svg'); /* Archivo SVG configurado */
+            width: 85vw;
+            height: 85vh;
+            background-image: url('logo_y_nombre.svg');
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
-            opacity: 0.08; /* Transparencia tenue para efecto marca de agua */
+            opacity: 0.22; /* Aumentamos visibilidad sin perder elegancia */
             z-index: 0;
             pointer-events: none;
         }
@@ -82,8 +82,8 @@
             text-decoration: none;
             color: var(--carbon-dark);
             font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
+            font-weight: 700;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
             position: relative;
             padding-bottom: 4px;
@@ -106,7 +106,7 @@
         }
 
         /* =========================================================
-           5. TARJETA PRINCIPAL (GLASSMORPHISM)
+           5. TARJETA CRISTALINA (PERMITE VER EL MONO DETRÁS)
            ========================================================= */
         main {
             position: relative;
@@ -119,16 +119,17 @@
         }
 
         .hero-card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            /* Vidrio semi-transparente para apreciar el dibujo */
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(17, 17, 17, 0.12);
             border-radius: 24px;
-            padding: 4rem 3rem;
-            max-width: 650px;
+            padding: 3.5rem 2.5rem;
+            max-width: 580px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
             animation: fadeIn 0.8s ease-out forwards;
         }
 
@@ -144,36 +145,36 @@
         }
 
         .main-title {
-            font-size: 3.2rem;
-            font-weight: 800;
-            line-height: 1.1;
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.05;
             letter-spacing: -0.03em;
             color: var(--carbon-dark);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             text-transform: uppercase;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--carbon-light);
-            letter-spacing: 0.08em;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--carbon-medium);
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         /* =========================================================
-           6. BARRA DE PROGRESO FINÍSIMA
+           6. BARRA DE PROGRESO CON MAYOR VISIBILIDAD
            ========================================================= */
         .progress-box {
             width: 100%;
-            max-width: 380px;
-            margin: 0 auto 3rem auto;
+            max-width: 360px;
+            margin: 0 auto 2.5rem auto;
         }
 
         .progress-track {
-            height: 4px;
-            background-color: var(--carbon-border);
+            height: 5px;
+            background-color: rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             overflow: hidden;
             position: relative;
@@ -181,8 +182,8 @@
 
         .progress-fill {
             height: 100%;
-            width: 65%; /* Modifica el porcentaje según el avance de tu web */
-            background: linear-gradient(90deg, var(--carbon-medium), var(--carbon-dark));
+            width: 65%;
+            background: var(--carbon-dark);
             border-radius: 10px;
             animation: progressAnim 2s ease-out forwards;
         }
@@ -196,25 +197,25 @@
             justify-content: space-between;
             margin-top: 0.75rem;
             font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--carbon-light);
+            font-weight: 700;
+            color: var(--carbon-dark);
         }
 
         /* =========================================================
-           7. BOTÓN PRINCIPAL
+           7. BOTÓN DE NOTIFICACIÓN
            ========================================================= */
         .btn-notify {
             display: inline-block;
             background-color: var(--carbon-dark);
             color: var(--bg-white);
             text-decoration: none;
-            padding: 1.1rem 3rem;
+            padding: 1rem 2.8rem;
             border-radius: 50px;
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.05em;
             border: 2px solid var(--carbon-dark);
-            box-shadow: 0 10px 20px -10px rgba(18, 18, 18, 0.3);
+            box-shadow: 0 10px 20px -5px rgba(17, 17, 17, 0.3);
             transition: var(--transition-smooth);
         }
 
@@ -222,39 +223,40 @@
             background-color: transparent;
             color: var(--carbon-dark);
             transform: translateY(-3px);
-            box-shadow: 0 15px 25px -10px rgba(18, 18, 18, 0.2);
+            box-shadow: 0 15px 25px -5px rgba(17, 17, 17, 0.2);
         }
 
         /* =========================================================
-           8. FOOTER Y REDES SOCIALES
+           8. REDES SOCIALES
            ========================================================= */
         footer {
             position: relative;
             z-index: 10;
-            padding: 3rem 5%;
+            padding: 2.5rem 5%;
             text-align: center;
         }
 
         .social-container {
             display: flex;
             justify-content: center;
-            gap: 1.8rem;
-            margin-bottom: 2rem;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .social-card {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            background-color: var(--bg-white);
-            border: 1px solid var(--carbon-border);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(17, 17, 17, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--carbon-dark);
             text-decoration: none;
             font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             transition: var(--transition-smooth);
         }
 
@@ -263,31 +265,28 @@
             color: var(--bg-white);
             border-color: var(--carbon-dark);
             transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
         }
 
         .copyright-text {
             font-size: 0.85rem;
-            color: var(--carbon-light);
-            font-weight: 400;
+            color: var(--carbon-medium);
+            font-weight: 500;
         }
 
         @media (max-width: 640px) {
-            .hero-card { padding: 3rem 1.5rem; }
+            .hero-card { padding: 2.5rem 1.5rem; }
             .main-title { font-size: 2.2rem; }
-            .social-card { width: 44px; height: 44px; font-size: 1.1rem; }
-            body::before { width: 95vw; }
+            body::before { width: 95vw; opacity: 0.25; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Menú Superior -->
     <header>
         <a href="#" class="nav-link">Home</a>
     </header>
 
-    <!-- Contenido Principal -->
     <main>
         <div class="hero-card">
             <h1 class="main-title">Under<br>Construction</h1>
@@ -303,15 +302,12 @@
                 </div>
             </div>
 
-            <!-- Reemplaza el correo por el tuyo -->
             <a href="mailto:contacto@monkeds.com" class="btn-notify">Notify Me!</a>
         </div>
     </main>
 
-    <!-- Pie de Página -->
     <footer>
         <div class="social-container">
-            <!-- Pónle los enlaces reales de tus redes en lugar de '#' -->
             <a href="#" target="_blank" class="social-card" title="Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="#" target="_blank" class="social-card" title="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="#" target="_blank" class="social-card" title="TikTok"><i class="fab fa-tiktok"></i></a>
