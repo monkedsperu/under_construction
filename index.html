@@ -38,22 +38,7 @@
             justify-content: space-between;
             align-items: center;
             overflow-x: hidden;
-            position: relative;
             -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- CABEZA Y LOGO GIGANTE DE FONDO --- */
-        .hero-bg-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 130vw; /* Cabeza súper grande */
-            max-width: 1000px;
-            height: auto;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.95;
         }
 
         /* --- HEADER --- */
@@ -72,9 +57,6 @@
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
             transition: var(--transition-smooth);
         }
 
@@ -82,72 +64,64 @@
             color: var(--carbon-light);
         }
 
-        /* --- CONTENEDOR PRINCIPAL --- */
+        /* --- CONTENEDOR PRINCIPAL EN 2 COLUMNAS --- */
         main {
-            position: relative;
-            z-index: 5;
             width: 100%;
-            max-width: 800px;
-            padding: 0 1.5rem;
-            display: flex;
-            flex-direction: column;
+            max-width: 1200px;
+            padding: 2rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             align-items: center;
-            text-align: center;
+            gap: 4rem;
             margin: auto 0;
-            min-height: 75vh;
-            justify-content: space-between;
         }
 
-        /* --- BLOQUES BLANCOS PARA MANTENER LECTURA SOBRE LA CABEZA --- */
-        .top-content {
-            margin-top: 0.5rem;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 1.2rem 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid var(--carbon-border);
+        /* COLUMNA IZQUIERDA: IMAGEN GIGANTE */
+        .left-column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-logo {
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* COLUMNA DERECHA: TEXTO, BARRA Y BOTÓN */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
         }
 
         .main-title {
-            font-size: 3.2rem;
+            font-size: 3.8rem;
             font-weight: 900;
-            line-height: 1;
+            line-height: 1.05;
             letter-spacing: -0.02em;
             color: var(--carbon-dark);
             text-transform: uppercase;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.8rem;
         }
 
         .subtitle {
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--carbon-medium);
             letter-spacing: 0.2em;
             text-transform: uppercase;
+            margin-bottom: 2.5rem;
         }
 
-        .bottom-content {
-            width: 100%;
-            max-width: 420px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 1.8rem 2rem;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid var(--carbon-border);
-            margin-bottom: 0.5rem;
-        }
-
-        /* --- BARRA DE PROGRESO --- */
+        /* BARRA DE PROGRESO */
         .progress-box {
             width: 100%;
-            margin-bottom: 1.2rem;
+            max-width: 380px;
+            margin-bottom: 2.2rem;
         }
 
         .progress-track {
@@ -168,25 +142,25 @@
             display: flex;
             justify-content: space-between;
             margin-top: 0.6rem;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 800;
             color: var(--carbon-dark);
         }
 
-        /* --- BOTÓN NOTIFY ME --- */
+        /* BOTÓN NOTIFY ME */
         .btn-notify {
             display: inline-block;
             background-color: var(--carbon-dark);
             color: var(--bg-white);
             text-decoration: none;
-            padding: 0.9rem 2.8rem;
+            padding: 1rem 3rem;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 0.05em;
             border: 2px solid var(--carbon-dark);
             transition: var(--transition-smooth);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
         }
 
         .btn-notify:hover {
@@ -198,7 +172,7 @@
         /* --- FOOTER Y REDES SOCIALES --- */
         footer {
             width: 100%;
-            padding: 2rem 5%;
+            padding: 2.5rem 5%;
             text-align: center;
             z-index: 10;
         }
@@ -222,7 +196,7 @@
             color: var(--carbon-dark);
             text-decoration: none;
             font-size: 1.1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
             transition: var(--transition-smooth);
         }
 
@@ -235,38 +209,45 @@
 
         .copyright-text {
             font-size: 0.8rem;
-            color: var(--carbon-medium);
-            font-weight: 600;
-            background-color: rgba(255, 255, 255, 0.85);
-            display: inline-block;
-            padding: 0.2rem 0.8rem;
-            border-radius: 12px;
+            color: var(--carbon-light);
+            font-weight: 500;
         }
 
-        @media (max-width: 640px) {
-            .main-title { font-size: 2.2rem; }
-            .hero-bg-logo { width: 160vw; max-width: none; }
+        /* Adaptación automática para pantallas pequeñas/móviles */
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .right-column {
+                align-items: center;
+                text-align: center;
+            }
+
+            .main-title { font-size: 2.8rem; }
+            .hero-logo { max-width: 380px; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Cabeza del mono gigante de fondo -->
-    <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-bg-logo">
 
     <header>
         <a href="#" class="nav-link">Home</a>
     </header>
 
     <main>
-        <!-- Título principal envuelto en fondo blanco elegante -->
-        <div class="top-content">
-            <h1 class="main-title">Under Construction</h1>
-            <p class="subtitle">Site nearly ready</p>
+        <!-- LADO IZQUIERDO: Imagen del Mono Gigante -->
+        <div class="left-column">
+            <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-logo">
         </div>
 
-        <!-- Barra y botón Notify Me envueltos en fondo blanco -->
-        <div class="bottom-content">
+        <!-- LADO DERECHO: Toda la información alineada -->
+        <div class="right-column">
+            <h1 class="main-title">Under<br>Construction</h1>
+            <p class="subtitle">Site nearly ready</p>
+
             <div class="progress-box">
                 <div class="progress-track">
                     <div class="progress-fill"></div>
