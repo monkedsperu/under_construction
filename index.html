@@ -129,14 +129,14 @@
             text-align: center;
         }
 
-        .social-container {
+        .social-links {
             display: flex;
             justify-content: center;
             gap: 1.2rem;
             margin-bottom: 1rem;
         }
 
-        .social-card {
+        .social-links a {
             width: 38px;
             height: 38px;
             border-radius: 50%;
@@ -151,7 +151,7 @@
             transition: var(--transition-smooth);
         }
 
-        .social-card:hover {
+        .social-links a:hover {
             background-color: var(--carbon-dark);
             color: #ffffff;
             border-color: var(--carbon-dark);
@@ -190,7 +190,7 @@
             <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-logo">
         </div>
 
-        <!-- Lado Derecho: Información -->
+        <!-- Lado Derecho: Información exacta -->
         <div class="right-column">
             <h1 class="main-title">PROXIMAMENTE</h1>
             <p class="subtitle">EN CONSTRUCCIÓN</p>
@@ -208,11 +208,26 @@
     </main>
 
     <footer>
-        <div class="social-container">
-            <a href="https://facebook.monkeds.com" target="_blank" rel="noopener noreferrer" class="social-card" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://instagram.monkeds.com" target="_blank" rel="noopener noreferrer" class="social-card" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://tiktok.monkeds.com" target="_blank" rel="noopener noreferrer" class="social-card" title="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="social-card" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <div class="social-links">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/monkedspe" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/monkeds.pe" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@monkeds.pe" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-tiktok"></i>
+          </a>
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/51999999999" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i>
+          </a>
         </div>
         <p class="copyright-text">© 2026 by monkedsperu. Proudly hosted on GitHub Pages.</p>
     </footer>
