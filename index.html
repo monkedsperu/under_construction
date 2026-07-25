@@ -8,26 +8,20 @@
     <!-- Fuente Inter y FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        /* =========================================================
-           1. VARIABLES Y PALETA DE COLORES
-           ========================================================= */
         :root {
-            --bg-white: #ffffff;
+            --bg-white: #fafafa;
             --carbon-dark: #111111;
-            --carbon-medium: #333333;
-            --carbon-light: #666666;
-            --carbon-border: #d0d7de;
+            --carbon-medium: #444444;
+            --carbon-light: #888888;
+            --carbon-border: #e0e0e0;
             --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: all 0.25s ease-in-out;
         }
 
-        /* =========================================================
-           2. RESET & ESTILOS BASE
-           ========================================================= */
         * {
             margin: 0;
             padding: 0;
@@ -42,40 +36,34 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
             overflow-x: hidden;
             position: relative;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* =========================================================
-           3. MARCA DE AGUA (LOGOTIPO VISIBLE Y NOTABLE)
-           ========================================================= */
-        body::before {
-            content: "";
+        /* --- LOGO CENTRAL (IMAGEN PRINCIPAL) --- */
+        .hero-bg-logo {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 85vw;
-            height: 85vh;
-            background-image: url('logo_y_nombre.svg');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.22; /* Aumentamos visibilidad sin perder elegancia */
-            z-index: 0;
+            transform: translate(-50%, -52%);
+            width: 100%;
+            max-width: 680px;
+            height: auto;
+            max-height: 75vh;
             pointer-events: none;
+            z-index: 1;
+            opacity: 0.85; /* Ajustado para que el logo resalte nítido y oscuro */
         }
 
-        /* =========================================================
-           4. HEADER & NAV
-           ========================================================= */
+        /* --- HEADER --- */
         header {
-            position: relative;
-            z-index: 10;
-            padding: 2.5rem 8%;
+            width: 100%;
+            padding: 2rem 8%;
             display: flex;
             justify-content: flex-end;
+            z-index: 10;
         }
 
         .nav-link {
@@ -83,163 +71,115 @@
             color: var(--carbon-dark);
             font-size: 0.85rem;
             font-weight: 700;
-            letter-spacing: 0.18em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            position: relative;
-            padding-bottom: 4px;
             transition: var(--transition-smooth);
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--carbon-dark);
-            transition: var(--transition-smooth);
+        .nav-link:hover {
+            color: var(--carbon-light);
         }
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* =========================================================
-           5. TARJETA CRISTALINA (PERMITE VER EL MONO DETRÁS)
-           ========================================================= */
+        /* --- CONTENIDO PRINCIPAL SIN CAJA BLANCA --- */
         main {
             position: relative;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 5%;
-            flex-grow: 1;
-        }
-
-        .hero-card {
-            /* Vidrio semi-transparente para apreciar el dibujo */
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(17, 17, 17, 0.12);
-            border-radius: 24px;
-            padding: 3.5rem 2.5rem;
-            max-width: 580px;
+            z-index: 5;
             width: 100%;
+            max-width: 600px;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            margin: auto 0;
         }
 
         .main-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
+            line-height: 1;
+            letter-spacing: -0.02em;
             color: var(--carbon-dark);
-            margin-bottom: 0.8rem;
             text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            /* Sombrita suave blanca para mantener legibilidad sobre la ilustración */
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9);
         }
 
         .subtitle {
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--carbon-medium);
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3.5rem;
+            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
         }
 
-        /* =========================================================
-           6. BARRA DE PROGRESO CON MAYOR VISIBILIDAD
-           ========================================================= */
+        /* --- BARRA DE PROGRESO --- */
         .progress-box {
             width: 100%;
-            max-width: 360px;
-            margin: 0 auto 2.5rem auto;
+            max-width: 380px;
+            margin-bottom: 2.5rem;
         }
 
         .progress-track {
             height: 5px;
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: var(--carbon-border);
             border-radius: 10px;
             overflow: hidden;
-            position: relative;
         }
 
         .progress-fill {
             height: 100%;
             width: 65%;
-            background: var(--carbon-dark);
+            background-color: var(--carbon-dark);
             border-radius: 10px;
-            animation: progressAnim 2s ease-out forwards;
-        }
-
-        @keyframes progressAnim {
-            from { width: 0%; }
         }
 
         .progress-text {
             display: flex;
             justify-content: space-between;
-            margin-top: 0.75rem;
+            margin-top: 0.6rem;
             font-size: 0.8rem;
             font-weight: 700;
             color: var(--carbon-dark);
         }
 
-        /* =========================================================
-           7. BOTÓN DE NOTIFICACIÓN
-           ========================================================= */
+        /* --- BOTÓN NOTIFY ME --- */
         .btn-notify {
             display: inline-block;
             background-color: var(--carbon-dark);
             color: var(--bg-white);
             text-decoration: none;
-            padding: 1rem 2.8rem;
-            border-radius: 50px;
+            padding: 1.1rem 3.2rem;
+            border-radius: 8px;
             font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 0.05em;
             border: 2px solid var(--carbon-dark);
-            box-shadow: 0 10px 20px -5px rgba(17, 17, 17, 0.3);
             transition: var(--transition-smooth);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .btn-notify:hover {
-            background-color: transparent;
+            background-color: var(--bg-white);
             color: var(--carbon-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px -5px rgba(17, 17, 17, 0.2);
+            transform: translateY(-2px);
         }
 
-        /* =========================================================
-           8. REDES SOCIALES
-           ========================================================= */
+        /* --- FOOTER Y REDES SOCIALES --- */
         footer {
-            position: relative;
-            z-index: 10;
+            width: 100%;
             padding: 2.5rem 5%;
             text-align: center;
+            z-index: 10;
         }
 
         .social-container {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1.8rem;
             margin-bottom: 1.5rem;
         }
 
@@ -247,63 +187,61 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(17, 17, 17, 0.15);
+            background-color: #ffffff;
+            border: 1px solid var(--carbon-border);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--carbon-dark);
             text-decoration: none;
             font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
             transition: var(--transition-smooth);
         }
 
         .social-card:hover {
             background-color: var(--carbon-dark);
-            color: var(--bg-white);
+            color: #ffffff;
             border-color: var(--carbon-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
         }
 
         .copyright-text {
             font-size: 0.85rem;
-            color: var(--carbon-medium);
+            color: var(--carbon-light);
             font-weight: 500;
         }
 
         @media (max-width: 640px) {
-            .hero-card { padding: 2.5rem 1.5rem; }
-            .main-title { font-size: 2.2rem; }
-            body::before { width: 95vw; opacity: 0.25; }
+            .main-title { font-size: 2.5rem; }
+            .hero-bg-logo { max-width: 90vw; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Imagen del Mono centrada exactamente en el fondo sin recuadros tapándola -->
+    <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-bg-logo">
 
     <header>
         <a href="#" class="nav-link">Home</a>
     </header>
 
     <main>
-        <div class="hero-card">
-            <h1 class="main-title">Under<br>Construction</h1>
-            <p class="subtitle">Site nearly ready</p>
+        <h1 class="main-title">Under<br>Construction</h1>
+        <p class="subtitle">Site nearly ready</p>
 
-            <div class="progress-box">
-                <div class="progress-track">
-                    <div class="progress-fill"></div>
-                </div>
-                <div class="progress-text">
-                    <span>0%</span>
-                    <span>100%</span>
-                </div>
+        <div class="progress-box">
+            <div class="progress-track">
+                <div class="progress-fill"></div>
             </div>
-
-            <a href="mailto:contacto@monkeds.com" class="btn-notify">Notify Me!</a>
+            <div class="progress-text">
+                <span>0%</span>
+                <span>100%</span>
+            </div>
         </div>
+
+        <a href="mailto:contacto@monkeds.com" class="btn-notify">Notify Me!</a>
     </main>
 
     <footer>
