@@ -41,7 +41,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- CONTENEDOR CENTRAL (DOS COLUMNAS) --- */
+        /* --- CONTENEDOR CENTRAL DE DOS COLUMNAS --- */
         main {
             width: 100%;
             max-width: 950px;
@@ -53,7 +53,7 @@
             margin: auto 0;
         }
 
-        /* COLUMNA IZQUIERDA: LOGO Y NOMBRE */
+        /* COLUMNA IZQUIERDA: LOGO CON NOMBRE */
         .left-column {
             display: flex;
             justify-content: center;
@@ -66,7 +66,7 @@
             object-fit: contain;
         }
 
-        /* COLUMNA DERECHA: TEXTO Y BARRA DE PROGRESO */
+        /* COLUMNA DERECHA: TEXTO Y CONTENIDOS */
         .right-column {
             display: flex;
             flex-direction: column;
@@ -97,6 +97,7 @@
         .progress-box {
             width: 100%;
             max-width: 320px;
+            margin-bottom: 2rem;
         }
 
         .progress-track {
@@ -108,7 +109,7 @@
 
         .progress-fill {
             height: 100%;
-            width: 50%; /* Progreso de la barra */
+            width: 50%;
             background-color: var(--carbon-dark);
             border-radius: 10px;
         }
@@ -120,6 +121,28 @@
             font-size: 0.75rem;
             font-weight: 800;
             color: var(--carbon-dark);
+        }
+
+        /* BOTÓN NOTIFY ME */
+        .btn-notify {
+            display: inline-block;
+            background-color: var(--carbon-dark);
+            color: var(--bg-white);
+            text-decoration: none;
+            padding: 0.85rem 2.5rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            border: 2px solid var(--carbon-dark);
+            transition: var(--transition-smooth);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-notify:hover {
+            background-color: var(--bg-white);
+            color: var(--carbon-dark);
+            transform: translateY(-2px);
         }
 
         /* --- FOOTER Y REDES SOCIALES --- */
@@ -164,7 +187,7 @@
             font-weight: 500;
         }
 
-        /* Adaptación fluida para pantallas móviles */
+        /* Adaptación fluida para celulares */
         @media (max-width: 800px) {
             main {
                 grid-template-columns: 1fr;
@@ -190,10 +213,10 @@
             <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-logo">
         </div>
 
-        <!-- Lado Derecho: Información en Español -->
+        <!-- Lado Derecho: Información de "Under Construction" -->
         <div class="right-column">
-            <h1 class="main-title">ESTO<br>PRÓXIMAMENTE</h1>
-            <p class="subtitle">EN CONSTRUCCIÓN</p>
+            <h1 class="main-title">Under<br>Construction</h1>
+            <p class="subtitle">Site nearly ready</p>
 
             <div class="progress-box">
                 <div class="progress-track">
@@ -204,6 +227,8 @@
                     <span>100%</span>
                 </div>
             </div>
+
+            <a href="mailto:contacto@monkeds.com" class="btn-notify">Notify Me!</a>
         </div>
     </main>
 
