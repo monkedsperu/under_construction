@@ -45,11 +45,11 @@
         /* --- CABEZA Y LOGO GIGANTE DE FONDO --- */
         .hero-bg-logo {
             position: absolute;
-            top: 55%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 120vw; /* Ajustado para que la cabeza se vea súper grande */
-            max-width: 950px;
+            width: 130vw; /* Cabeza súper grande */
+            max-width: 1000px;
             height: auto;
             pointer-events: none;
             z-index: 1;
@@ -72,6 +72,9 @@
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
             transition: var(--transition-smooth);
         }
 
@@ -79,7 +82,7 @@
             color: var(--carbon-light);
         }
 
-        /* --- CONTENIDOS SEPARADOS PARA NO TAPAR LA CABEZA --- */
+        /* --- CONTENEDOR PRINCIPAL --- */
         main {
             position: relative;
             z-index: 5;
@@ -91,26 +94,34 @@
             align-items: center;
             text-align: center;
             margin: auto 0;
-            min-height: 78vh;
+            min-height: 75vh;
             justify-content: space-between;
         }
 
+        /* --- BLOQUES BLANCOS PARA MANTENER LECTURA SOBRE LA CABEZA --- */
         .top-content {
             margin-top: 0.5rem;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 1.2rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--carbon-border);
         }
 
         .main-title {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 900;
             line-height: 1;
             letter-spacing: -0.02em;
             color: var(--carbon-dark);
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .subtitle {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--carbon-medium);
             letter-spacing: 0.2em;
@@ -119,17 +130,24 @@
 
         .bottom-content {
             width: 100%;
+            max-width: 420px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 1.8rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--carbon-border);
             margin-bottom: 0.5rem;
         }
 
         /* --- BARRA DE PROGRESO --- */
         .progress-box {
             width: 100%;
-            max-width: 360px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .progress-track {
@@ -161,14 +179,14 @@
             background-color: var(--carbon-dark);
             color: var(--bg-white);
             text-decoration: none;
-            padding: 1rem 3rem;
+            padding: 0.9rem 2.8rem;
             border-radius: 50px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             letter-spacing: 0.05em;
             border: 2px solid var(--carbon-dark);
             transition: var(--transition-smooth);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .btn-notify:hover {
@@ -204,7 +222,7 @@
             color: var(--carbon-dark);
             text-decoration: none;
             font-size: 1.1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             transition: var(--transition-smooth);
         }
 
@@ -217,19 +235,23 @@
 
         .copyright-text {
             font-size: 0.8rem;
-            color: var(--carbon-light);
-            font-weight: 500;
+            color: var(--carbon-medium);
+            font-weight: 600;
+            background-color: rgba(255, 255, 255, 0.85);
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
         }
 
         @media (max-width: 640px) {
             .main-title { font-size: 2.2rem; }
-            .hero-bg-logo { width: 140vw; max-width: none; }
+            .hero-bg-logo { width: 160vw; max-width: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Cabeza del mono ampliada al máximo -->
+    <!-- Cabeza del mono gigante de fondo -->
     <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-bg-logo">
 
     <header>
@@ -237,13 +259,13 @@
     </header>
 
     <main>
-        <!-- Título "UNDER CONSTRUCTION" totalmente separado en la parte superior -->
+        <!-- Título principal envuelto en fondo blanco elegante -->
         <div class="top-content">
             <h1 class="main-title">Under Construction</h1>
             <p class="subtitle">Site nearly ready</p>
         </div>
 
-        <!-- Barra de progreso y botón ubicados abajo -->
+        <!-- Barra y botón Notify Me envueltos en fondo blanco -->
         <div class="bottom-content">
             <div class="progress-box">
                 <div class="progress-track">
