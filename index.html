@@ -41,7 +41,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- CONTENEDOR CENTRAL DE DOS COLUMNAS --- */
+        /* --- CONTENEDOR CENTRAL (DOS COLUMNAS) --- */
         main {
             width: 100%;
             max-width: 950px;
@@ -53,7 +53,7 @@
             margin: auto 0;
         }
 
-        /* COLUMNA IZQUIERDA: LOGO CON NOMBRE */
+        /* COLUMNA IZQUIERDA: LOGO Y NOMBRE */
         .left-column {
             display: flex;
             justify-content: center;
@@ -66,7 +66,7 @@
             object-fit: contain;
         }
 
-        /* COLUMNA DERECHA: TEXTO Y CONTENIDOS */
+        /* COLUMNA DERECHA: TEXTO Y BARRA DE PROGRESO */
         .right-column {
             display: flex;
             flex-direction: column;
@@ -97,7 +97,6 @@
         .progress-box {
             width: 100%;
             max-width: 320px;
-            margin-bottom: 2rem;
         }
 
         .progress-track {
@@ -121,28 +120,6 @@
             font-size: 0.75rem;
             font-weight: 800;
             color: var(--carbon-dark);
-        }
-
-        /* BOTÓN NOTIFY ME */
-        .btn-notify {
-            display: inline-block;
-            background-color: var(--carbon-dark);
-            color: var(--bg-white);
-            text-decoration: none;
-            padding: 0.85rem 2.5rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-            border: 2px solid var(--carbon-dark);
-            transition: var(--transition-smooth);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-notify:hover {
-            background-color: var(--bg-white);
-            color: var(--carbon-dark);
-            transform: translateY(-2px);
         }
 
         /* --- FOOTER Y REDES SOCIALES --- */
@@ -187,7 +164,7 @@
             font-weight: 500;
         }
 
-        /* Adaptación fluida para celulares */
+        /* Adaptación fluida para pantallas móviles */
         @media (max-width: 800px) {
             main {
                 grid-template-columns: 1fr;
@@ -213,10 +190,10 @@
             <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-logo">
         </div>
 
-        <!-- Lado Derecho: Información de "Under Construction" -->
+        <!-- Lado Derecho: Información en Español -->
         <div class="right-column">
-            <h1 class="main-title">Under<br>Construction</h1>
-            <p class="subtitle">Proximamente.......y</p>
+            <h1 class="main-title">ESTO<br>PROXIMAMENTE</h1>
+            <p class="subtitle">EN CONSTRUCCIÓN</p>
 
             <div class="progress-box">
                 <div class="progress-track">
@@ -226,6 +203,8 @@
                     <span>0%</span>
                     <span>100%</span>
                 </div>
+            </div>
+        </div>
     </main>
 
     <footer>
