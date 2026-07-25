@@ -13,7 +13,7 @@
 
     <style>
         :root {
-            --bg-white: #fafafa;
+            --bg-white: #ffffff;
             --carbon-dark: #111111;
             --carbon-medium: #444444;
             --carbon-light: #888888;
@@ -42,25 +42,25 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- LOGO CENTRAL (IMAGEN PRINCIPAL) --- */
+        /* --- LOGO PRINCIPAL VISIBLE Y SIN TARJETA --- */
         .hero-bg-logo {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -52%);
+            transform: translate(-50%, -50%);
             width: 100%;
-            max-width: 680px;
+            max-width: 700px;
             height: auto;
-            max-height: 75vh;
+            max-height: 80vh;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.85; /* Ajustado para que el logo resalte nítido y oscuro */
+            opacity: 0.95;
         }
 
         /* --- HEADER --- */
         header {
             width: 100%;
-            padding: 2rem 8%;
+            padding: 2.5rem 8%;
             display: flex;
             justify-content: flex-end;
             z-index: 10;
@@ -80,7 +80,7 @@
             color: var(--carbon-light);
         }
 
-        /* --- CONTENIDO PRINCIPAL SIN CAJA BLANCA --- */
+        /* --- CONTENIDOS DIRECTOS SOBRE EL FONDO --- */
         main {
             position: relative;
             z-index: 5;
@@ -95,15 +95,14 @@
         }
 
         .main-title {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 900;
             line-height: 1;
             letter-spacing: -0.02em;
             color: var(--carbon-dark);
             text-transform: uppercase;
             margin-bottom: 0.8rem;
-            /* Sombrita suave blanca para mantener legibilidad sobre la ilustración */
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 10px rgba(255, 255, 255, 1);
         }
 
         .subtitle {
@@ -113,7 +112,7 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             margin-bottom: 3.5rem;
-            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 1);
         }
 
         /* --- BARRA DE PROGRESO --- */
@@ -124,7 +123,7 @@
         }
 
         .progress-track {
-            height: 5px;
+            height: 6px;
             background-color: var(--carbon-border);
             border-radius: 10px;
             overflow: hidden;
@@ -141,8 +140,8 @@
             display: flex;
             justify-content: space-between;
             margin-top: 0.6rem;
-            font-size: 0.8rem;
-            font-weight: 700;
+            font-size: 0.85rem;
+            font-weight: 800;
             color: var(--carbon-dark);
         }
 
@@ -159,7 +158,7 @@
             letter-spacing: 0.05em;
             border: 2px solid var(--carbon-dark);
             transition: var(--transition-smooth);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .btn-notify:hover {
@@ -195,7 +194,7 @@
             color: var(--carbon-dark);
             text-decoration: none;
             font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
             transition: var(--transition-smooth);
         }
 
@@ -220,7 +219,6 @@
 </head>
 <body>
 
-    <!-- Imagen del Mono centrada exactamente en el fondo sin recuadros tapándola -->
     <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-bg-logo">
 
     <header>
