@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monkeds - Under Construction</title>
+    <title>Monkeds - En Construcción</title>
 
-    <!-- Fuente Inter y FontAwesome -->
+    
+    <meta name="description" content="Monkeds - Próximamente sitio web oficial. Arte, diseño y escultura digital.">
+    <meta property="og:title" content="Monkeds - Under Construction">
+    <meta property="og:description" content="Próximamente sitio web oficial.">
+    <meta property="og:image" content="logo_y_nombre.svg">
+    <link rel="icon" type="image/svg+xml" href="logo_y_nombre.svg">
+
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
@@ -41,19 +48,19 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- CONTENEDOR CENTRAL --- */
+
         main {
             width: 100%;
             max-width: 950px;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: 360px 1fr;
+            grid-template-columns: 360px auto;
             align-items: center;
             gap: 3.5rem;
             margin: auto 0;
         }
 
-        /* COLUMNA IZQUIERDA: LOGO */
+
         .left-column {
             display: flex;
             justify-content: center;
@@ -66,12 +73,13 @@
             object-fit: contain;
         }
 
-        /* COLUMNA DERECHA: TEXTO Y BARRA */
+
         .right-column {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             text-align: left;
+            width: fit-content; 
         }
 
         .main-title {
@@ -82,6 +90,8 @@
             color: var(--carbon-dark);
             text-transform: uppercase;
             margin-bottom: 1.2rem;
+            white-space: nowrap;
+            margin-top: 1em;
         }
 
         .subtitle {
@@ -93,10 +103,9 @@
             margin-bottom: 1.8rem;
         }
 
-        /* BARRA DE PROGRESO */
+       
         .progress-box {
-            width: 100%;
-            max-width: 320px;
+            width: 100%; 
         }
 
         .progress-track {
@@ -104,6 +113,7 @@
             background-color: var(--carbon-border);
             border-radius: 10px;
             overflow: hidden;
+            width: 100%;
         }
 
         .progress-fill {
@@ -122,7 +132,7 @@
             color: var(--carbon-dark);
         }
 
-        /* --- FOOTER Y REDES SOCIALES --- */
+
         footer {
             width: 100%;
             padding: 2.5rem 5%;
@@ -164,10 +174,10 @@
             font-weight: 500;
         }
 
-        /* Responsive */
         @media (max-width: 800px) {
             main {
                 grid-template-columns: 1fr;
+                justify-items: center;
                 gap: 2rem;
                 text-align: center;
             }
@@ -175,25 +185,32 @@
             .right-column {
                 align-items: center;
                 text-align: center;
+                width: 100%;
             }
 
-            .main-title { font-size: 2.5rem; }
+            .main-title { 
+                font-size: 2.5rem; 
+                white-space: normal;
+            }
             .hero-logo { max-width: 280px; }
+
+            .progress-box {
+                max-width: 380px;
+            }
         }
     </style>
 </head>
 <body>
 
     <main>
-        <!-- Lado Izquierdo: Logo completo Monkeds -->
+        
         <div class="left-column">
             <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-logo">
         </div>
 
-        <!-- Lado Derecho: Información exacta -->
+        
         <div class="right-column">
-            <h1 class="main-title">PRÓXIMAMENTE</h1>
-            <p class="subtitle">EN CONSTRUCCIÓN</p>
+            <h1 class="main-title">En construcción</h1>
 
             <div class="progress-box">
                 <div class="progress-track">
@@ -209,25 +226,26 @@
 
     <footer>
         <div class="social-links">
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/monkedspe" target="_blank" rel="noopener noreferrer">
+            
+            <a href="https://www.facebook.com/monkedspe" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-facebook-f"></i>
-          </a>
+            </a>
 
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/monkeds.pe" target="_blank" rel="noopener noreferrer">
+            
+            <a href="https://www.instagram.com/monkeds.pe" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-instagram"></i>
-          </a>
+            </a>
 
-          <!-- TikTok -->
-          <a href="https://www.tiktok.com/@monkeds.pe" target="_blank" rel="noopener noreferrer">
+            
+            <a href="https://www.tiktok.com/@monkeds.pe" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-tiktok"></i>
-          </a>
+            </a>
 
-          <!-- WhatsApp -->
-          <a href="https://wa.me/51999999999" target="_blank" rel="noopener noreferrer">
+            
+            
+            <a href="https://wa.me/51933005573?text=Hola,%20quisiera%20consultar%20por%20sus%20productos" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
-          </a>
+            </a>
         </div>
         <p class="copyright-text">© 2026 by monkedsperu. Proudly hosted on GitHub Pages.</p>
     </footer>
