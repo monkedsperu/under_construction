@@ -5,28 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monkeds - En Construcción</title>
 
-    
+    <!-- Meta SEO & OG -->
     <meta name="description" content="Monkeds - Próximamente sitio web oficial. Arte, diseño y escultura digital.">
-    <meta property="og:title" content="Monkeds - Under Construction">
-    <meta property="og:description" content="Próximamente sitio web oficial.">
+    <meta property="og:title" content="Monkeds - En Construcción">
+    <meta property="og:description" content="Próximamente sitio web oficial. Arte, diseño y escultura digital.">
     <meta property="og:image" content="logo_y_nombre.svg">
-    <link rel="icon" type="image/svg+xml" href="logo_y_nombre.svg">
+    <link rel="icon" type="image/svg+xml" href="log_head.svg">
 
-    
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
         :root {
-            --bg-white: #ffffff;
-            --carbon-dark: #000000;
-            --carbon-medium: #555555;
-            --carbon-light: #888888;
-            --carbon-border: #e0e0e0;
+            /* UI Kit Oficial Monkeds v2.0 */
+            --monkeds-bg: #f9fafb;             /* Blanco Galería */
+            --monkeds-bg-alt: #f1f5f9;         /* Variante Roto Sutil */
+            --monkeds-black: #111111;          /* Negro Carbón Deep */
+            --monkeds-slate: #64748b;          /* Gris Titanio (Técnico) */
+            --monkeds-border: #e2e8f0;         /* Línea fina */
+            --monkeds-gold: #ffc700;           /* Acento 1: Amarillo Industrial */
+            --monkeds-cyan: #0ea5e9;           /* Acento 2: Azul Cyber Viewport */
+            --whatsapp-green: #25d366;         /* Verde oficial WhatsApp */
+            --whatsapp-hover: #1eae53;
+
+            --bg-gradient: radial-gradient(circle at center, var(--monkeds-bg) 0%, var(--monkeds-bg-alt) 100%);
             --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            --transition-smooth: all 0.25s ease-in-out;
+            --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -35,167 +42,305 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
         body {
             font-family: var(--font-family);
-            background-color: var(--bg-white);
-            color: var(--carbon-dark);
-            min-height: 100vh;
+            background: var(--bg-gradient);
+            color: var(--monkeds-black);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            user-select: none;
         }
 
-
+        /* Layout Principal */
         main {
             width: 100%;
-            max-width: 950px;
-            padding: 0 2rem;
+            max-width: 820px;
+            padding: 1rem;
             display: grid;
-            grid-template-columns: 360px auto;
+            grid-template-columns: 280px 1fr;
             align-items: center;
-            gap: 3.5rem;
-            margin: auto 0;
+            gap: 3rem;
+            margin: auto;
         }
-
 
         .left-column {
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100%;
+            opacity: 0;
+            animation: slideRight 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
         }
 
+        /* Logo renderizado como Background Image (Inarrastrable) */
         .hero-logo {
             width: 100%;
-            height: auto;
-            object-fit: contain;
+            max-width: 260px;
+            height: 220px;
+            background-image: url('logo_y_nombre.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: drop-shadow(0 12px 24px rgba(17, 17, 17, 0.06));
+            animation: float 5s ease-in-out infinite;
+            -webkit-user-drag: none;
+            user-select: none;
+            pointer-events: none;
         }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
 
         .right-column {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            text-align: left;
-            width: fit-content; 
+            width: 100%;
+            opacity: 0;
+            animation: slideLeft 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards;
         }
 
-        .main-title {
-            font-size: 3.2rem;
-            font-weight: 900;
-            line-height: 0.95;
-            letter-spacing: -0.03em;
-            color: var(--carbon-dark);
-            text-transform: uppercase;
-            margin-bottom: 1.2rem;
-            white-space: nowrap;
-            margin-top: 1em;
+        .construction-block {
+            width: 100%;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
         }
 
-        .subtitle {
-            font-size: 0.75rem;
+        /* BADGE TÉCNICO V2 */
+        .status-badge {
+            align-self: flex-start; /* Alineado a la izquierda dentro del contenedor */
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.65rem;
             font-weight: 800;
-            color: var(--carbon-medium);
-            letter-spacing: 0.25em;
             text-transform: uppercase;
-            margin-bottom: 1.8rem;
+            letter-spacing: 0.08em;
+            color: var(--monkeds-cyan);
+            background: #ffffff;
+            border: 1px solid rgba(14, 165, 233, 0.3);
+            padding: 5px 12px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(14, 165, 233, 0.08);
         }
 
-       
-        .progress-box {
-            width: 100%; 
+        .status-badge i {
+            font-size: 0.65rem;
+            animation: spin-slow 8s linear infinite;
         }
 
+        @keyframes spin-slow {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* TÍTULO JUSTIFICADO DE EXTREMO A EXTREMO */
+        .main-title {
+            width: 100%;
+            font-size: 2.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--monkeds-black);
+            margin: 0;
+            line-height: 1;
+            text-align: justify;
+            text-align-last: justify;
+            letter-spacing: 0;
+        }
+
+        /* Barra de Progreso Industrial */
         .progress-track {
-            height: 4px;
-            background-color: var(--carbon-border);
-            border-radius: 10px;
+            height: 11px;
+            background-color: var(--monkeds-border);
+            border-radius: 20px;
             overflow: hidden;
             width: 100%;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         .progress-fill {
             height: 100%;
-            width: 50%;
-            background-color: var(--carbon-dark);
-            border-radius: 10px;
+            width: 25%;
+            border-radius: 20px;
+            background: repeating-linear-gradient(
+                -45deg,
+                var(--monkeds-gold),
+                var(--monkeds-gold) 12px,
+                var(--monkeds-black) 12px,
+                var(--monkeds-black) 24px
+            );
+            background-size: 34px 100%;
+            animation: stripe-move 1.1s linear infinite;
         }
 
-        .progress-text {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 0.6rem;
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: var(--carbon-dark);
+        @keyframes stripe-move {
+            0% { background-position: 0 0; }
+            100% { background-position: 34px 0; }
         }
 
+        /* BOTÓN DE WHATSAPP */
+        .cta-btn {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--whatsapp-green);
+            color: #ffffff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 11px 16px;
+            border-radius: 6px;
+            margin-top: 0.1rem;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+            user-select: auto;
+        }
 
+        .cta-btn i {
+            font-size: 1.05rem;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--whatsapp-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+        }
+
+        /* Footer & Redes Sociales */
         footer {
             width: 100%;
-            padding: 2.5rem 5%;
+            padding: 1rem;
             text-align: center;
+            opacity: 0;
+            animation: fadeUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.2rem;
-            margin-bottom: 1rem;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
         }
 
         .social-links a {
             width: 38px;
             height: 38px;
             border-radius: 50%;
-            background-color: #ffffff;
-            border: 1px solid var(--carbon-border);
+            background: #ffffff;
+            border: 1px solid var(--monkeds-border);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--carbon-dark);
+            color: var(--monkeds-black);
             text-decoration: none;
             font-size: 0.95rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
             transition: var(--transition-smooth);
         }
 
         .social-links a:hover {
-            background-color: var(--carbon-dark);
-            color: #ffffff;
-            border-color: var(--carbon-dark);
+            background-color: var(--monkeds-black);
+            color: var(--monkeds-gold);
+            border-color: var(--monkeds-black);
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
         }
 
         .copyright-text {
-            font-size: 0.75rem;
-            color: var(--carbon-light);
-            font-weight: 500;
+            font-size: 0.72rem;
+            color: var(--monkeds-slate);
+            font-weight: 50;
+            letter-spacing: 0.04em;
         }
 
-        @media (max-width: 800px) {
+        /* KEYFRAMES SUAVES Y PAUSADOS */
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Optimización Móvil Centrada */
+        @media (max-width: 768px) {
             main {
                 grid-template-columns: 1fr;
                 justify-items: center;
-                gap: 2rem;
-                text-align: center;
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            .left-column {
+                justify-content: center;
             }
 
             .right-column {
-                align-items: center;
-                text-align: center;
+                align-items: center; /* Centra el bloque .construction-block en la pantalla */
                 width: 100%;
             }
 
-            .main-title { 
-                font-size: 2.5rem; 
-                white-space: normal;
+            .hero-logo { 
+                max-width: 220px; 
+                height: 180px;
+                margin-bottom: 50px;
             }
-            .hero-logo { max-width: 280px; }
 
-            .progress-box {
-                max-width: 380px;
+            .construction-block {
+                max-width: 300px;
+                margin: 0 auto; /* Asegura el centrado exacto */
+            }
+
+            .status-badge {
+                align-self: flex-start; /* Se mantiene a la izquierda respetando su contenedor */
+            }
+
+            .main-title { 
+                font-size: 1.8rem !important;
+            }
+
+            footer {
+                padding: 0.8rem 1rem;
             }
         }
     </style>
@@ -203,51 +348,51 @@
 <body>
 
     <main>
-        
         <div class="left-column">
-            <img src="logo_y_nombre.svg" alt="Monkeds Logo" class="hero-logo">
+            <!-- Logo implementado como CSS Background -->
+            <div class="hero-logo" aria-label="Monkeds Logo"></div>
         </div>
 
-        
         <div class="right-column">
-            <h1 class="main-title">En construcción</h1>
+            <div class="construction-block">
+                <div class="status-badge">
+                    <i class="fa-solid fa-gear"></i> Plataforma v2.0
+                </div>
 
-            <div class="progress-box">
-                <div class="progress-track">
+                <h1 class="main-title">EN CONSTRUCCIÓN</h1>
+
+                <div class="progress-track" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-fill"></div>
                 </div>
-                <div class="progress-text">
-                    <span>0%</span>
-                    <span>100%</span>
-                </div>
+
+                <!-- Botón CTA Limpio -->
+                <a href="https://wa.me/51933005573?text=Hola%20Monkeds%2C%20tengo%20una%20idea%20para%20una%20figura%20y%20quisiera%20cotizarla." 
+                   class="cta-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp
+                </a>
             </div>
         </div>
     </main>
 
     <footer>
         <div class="social-links">
-            
-            <a href="https://www.facebook.com/monkedspe" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-facebook-f"></i>
+            <a href="https://www.facebook.com/monkedspe" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
             </a>
 
-            
-            <a href="https://www.instagram.com/monkeds.pe" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/monkeds.pe" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
             </a>
 
-            
-            <a href="https://www.tiktok.com/@monkeds.pe" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-tiktok"></i>
+            <a href="https://www.tiktok.com/@monkeds.pe" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
             </a>
 
-            
-            
-            <a href="https://wa.me/51933005573?text=Hola,%20quisiera%20consultar%20por%20sus%20productos" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i>
+            <a href="https://wa.me/51933005573?text=Hola%20Monkeds%2C%20tengo%20una%20idea%20para%20una%20figura%20y%20quisiera%20cotizarla." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
             </a>
         </div>
-        <p class="copyright-text">© 2026 by monkeds.</p>
+        <p class="copyright-text">© 2026 by monkeds</p>
     </footer>
 
 </body>

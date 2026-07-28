@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual de Identidad & UI Kit - Monkeds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --monkeds-bg: #f9fafb;
+            --monkeds-black: #111111;
+            --monkeds-slate: #64748b;
+            --monkeds-border: #e2e8f0;
+            --monkeds-gold: #ffc700;
+            --monkeds-cyan: #0ea5e9;
+            --monkeds-disabled: #cbd5e1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #d1d5db; color: var(--monkeds-black); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+        .page { width: 210mm; height: 297mm; padding: 20mm; margin: 10mm auto; background: #ffffff; box-shadow: 0 10px 25px rgba(0,0,0,0.1); position: relative; page-break-after: always; display: flex; flex-direction: column; justify-content: space-between; }
+        @media print { body { background: none; } .page { margin: 0; box-shadow: none; width: 210mm; height: 297mm; } }
+
+        /* Encabezados y Pie */
+        .doc-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--monkeds-black); padding-bottom: 10px; margin-bottom: 20px; }
+        .doc-header h2 { font-size: 1.1rem; font-weight: 900; letter-spacing: -0.02em; }
+        .doc-header span { font-size: 0.7rem; color: var(--monkeds-slate); font-weight: 600; text-transform: uppercase; }
+        .doc-footer { border-top: 1px solid var(--monkeds-border); padding-top: 10px; display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--monkeds-slate); font-weight: 500; }
+
+        .title-main { font-size: 2rem; font-weight: 900; margin-bottom: 4px; letter-spacing: -0.03em; }
+        .subtitle { font-size: 0.9rem; color: var(--monkeds-slate); margin-bottom: 25px; }
+
+        .section-title { font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .section-title::before { content: ''; display: inline-block; width: 4px; height: 14px; background: var(--monkeds-gold); }
+
+        /* Logos y Colores */
+        .asset-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+        .asset-card { border: 1px solid var(--monkeds-border); border-radius: 8px; padding: 20px 15px; background: #ffffff; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .asset-preview { height: 90px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; width: 100%; }
+        .asset-preview img { max-height: 80px; max-width: 100%; object-fit: contain; }
+        .asset-title { font-size: 0.85rem; font-weight: 800; margin-bottom: 4px; }
+        .asset-file { font-family: monospace; font-size: 0.72rem; background: #f0f9ff; border: 1px solid #bae6fd; padding: 3px 8px; border-radius: 4px; color: var(--monkeds-cyan); font-weight: 700; margin-bottom: 8px; }
+        .asset-desc { font-size: 0.72rem; color: var(--monkeds-slate); line-height: 1.3; }
+
+        .color-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
+        .color-card { border: 1px solid var(--monkeds-border); border-radius: 6px; overflow: hidden; display: flex; background: #fff; }
+        .color-swatch { width: 70px; height: 100%; min-height: 70px; }
+        .color-info { padding: 8px 12px; font-size: 0.72rem; display: flex; flex-direction: column; justify-content: center; }
+        .color-info strong { font-size: 0.8rem; margin-bottom: 2px; color: var(--monkeds-black); }
+
+        /* Muestras UI */
+        .ui-sample-box { border: 1px solid var(--monkeds-border); border-radius: 6px; padding: 15px; background: var(--monkeds-bg); margin-bottom: 20px; }
+        
+        .typography-spec { display: flex; flex-direction: column; gap: 10px; }
+        .type-item { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px dashed var(--monkeds-border); padding-bottom: 6px; }
+        .type-label { font-size: 0.7rem; color: var(--monkeds-slate); font-family: monospace; }
+
+        /* Citas (Blockquote) */
+        blockquote.monkeds-quote { border-left: 4px solid var(--monkeds-gold); padding: 10px 15px; margin: 15px 0; font-style: italic; color: #334155; font-size: 0.85rem; background: #fff; border-radius: 0 6px 6px 0; border-top: 1px solid var(--monkeds-border); border-right: 1px solid var(--monkeds-border); border-bottom: 1px solid var(--monkeds-border); }
+
+        /* Links */
+        a.monkeds-link { color: var(--monkeds-cyan); text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; transition: all 0.2s; }
+        a.monkeds-link:hover { border-bottom-color: var(--monkeds-cyan); }
+
+        /* Usos Correctos e Incorrectos */
+        .do-dont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .box-sample { height: 80px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; position: relative; border: 1px solid var(--monkeds-border); }
+        .badge-ok { position: absolute; top: 6px; right: 6px; background: #22c55e; color: #fff; font-size: 0.6rem; padding: 2px 5px; border-radius: 3px; font-weight: 700; }
+        .badge-fail { position: absolute; top: 6px; right: 6px; background: #ef4444; color: #fff; font-size: 0.6rem; padding: 2px 5px; border-radius: 3px; font-weight: 700; }
+
+        /* BOTONES UI */
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+        .btn { padding: 9px 18px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+        .btn-primary { background: var(--monkeds-gold); color: var(--monkeds-black); }
+        .btn-primary:hover { background: #e6b300; }
+        .btn-dark { background: var(--monkeds-black); color: #ffffff; }
+        .btn-cyan { background: var(--monkeds-cyan); color: #ffffff; }
+        .btn-disabled { background: var(--monkeds-disabled); color: #94a3b8; cursor: not-allowed; }
+
+        /* FORMULARIOS */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .form-group { display: flex; flex-direction: column; gap: 4px; }
+        fieldset.monkeds-fieldset { border: 1px solid var(--monkeds-border); border-radius: 6px; padding: 15px; background: #fff; margin-bottom: 20px; }
+        legend.monkeds-legend { font-size: 0.8rem; font-weight: 800; padding: 0 8px; color: var(--monkeds-black); text-transform: uppercase; }
+        label.monkeds-label { font-size: 0.72rem; font-weight: 700; color: var(--monkeds-black); }
+        input.monkeds-input { padding: 8px 12px; border-radius: 4px; border: 1px solid var(--monkeds-border); font-size: 0.8rem; outline: none; background: #fff; font-family: inherit; }
+        input.monkeds-input:focus { border-color: var(--monkeds-cyan); box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2); }
+        input.monkeds-input:disabled { background: #f1f5f9; border-color: var(--monkeds-disabled); color: #94a3b8; cursor: not-allowed; }
+
+        /* TABLAS UI */
+        table.monkeds-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; margin-top: 5px; background: #fff; border-radius: 6px; overflow: hidden; border: 1px solid var(--monkeds-border); margin-bottom: 20px; }
+        table.monkeds-table th { background: var(--monkeds-black); color: #fff; text-align: left; padding: 10px 12px; font-weight: 700; text-transform: uppercase; font-size: 0.68rem; }
+        table.monkeds-table td { padding: 10px 12px; border-bottom: 1px solid var(--monkeds-border); color: #334155; }
+        table.monkeds-table tr:last-child td { border-bottom: none; }
+        table.monkeds-table tr:nth-child(even) { background: #f8fafc; }
+
+        /* Iconos */
+        .icons-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 25px; }
+        .icon-box { border: 1px solid var(--monkeds-border); padding: 12px; text-align: center; border-radius: 6px; font-size: 1.1rem; background: #ffffff; color: var(--monkeds-black); }
+        .icon-box.active-digital { border-color: var(--monkeds-cyan); background: #f0f9ff; color: var(--monkeds-cyan); }
+        .icon-box span { display: block; font-size: 0.6rem; margin-top: 4px; color: var(--monkeds-slate); }
+        .icon-box.active-digital span { color: var(--monkeds-cyan); font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <!-- PAGINA 1: RECURSOS Y COLORES -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <h2>MONKEDS.PE</h2>
+                <span>Manual de Identidad & UI Kit v2.0</span>
+            </div>
+
+            <h1 class="title-main">Estructura y Archivos Vectoriales</h1>
+            <p class="subtitle">Especificaciones técnicas para archivos SVG y paleta cromática.</p>
+
+            <h3 class="section-title">1. Uso de Logotipos SVG</h3>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <img src="logo_y_nombre.svg" alt="Imagotipo Monkeds">
+                    </div>
+                    <div class="asset-title">Imagotipo Principal</div>
+                    <div class="asset-file">logo_y_nombre.svg</div>
+                    <p class="asset-desc">Símbolo + Texto. Uso obligatorio en cabeceras principales, empaques, banners y documentos oficiales.</p>
+                </div>
+
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <img src="log_head.svg" alt="Isotipo Monkeds">
+                    </div>
+                    <div class="asset-title">Isotipo / Identificador Compacto</div>
+                    <div class="asset-file">log_head.svg</div>
+                    <p class="asset-desc">Símbolo aislado. Uso en Favicon, fotos de perfil de redes sociales, grabados 3D y marcas de agua.</p>
+                </div>
+            </div>
+
+            <h3 class="section-title">2. Paleta de Colores Institucionales</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #111111;"></div>
+                    <div class="color-info">
+                        <strong>Negro Carbón Deep</strong>
+                        <span>HEX: #111111</span>
+                        <span>RGB: 17, 17, 17</span>
+                        <span>CMYK: 70, 65, 64, 82</span>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #f9fafb; border-right: 1px solid #e2e8f0;"></div>
+                    <div class="color-info">
+                        <strong>Blanco Galería</strong>
+                        <span>HEX: #F9FAFB</span>
+                        <span>RGB: 249, 250, 251</span>
+                        <span>CMYK: 1, 1, 0, 2</span>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #64748b;"></div>
+                    <div class="color-info">
+                        <strong>Gris Titanio (Técnico)</strong>
+                        <span>HEX: #64748B</span>
+                        <span>RGB: 100, 116, 139</span>
+                        <span>CMYK: 60, 43, 31, 8</span>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch" style="background: #ffc700;"></div>
+                    <div class="color-info">
+                        <strong>Amarillo Industrial</strong>
+                        <span>HEX: #FFC700</span>
+                        <span>RGB: 255, 199, 0</span>
+                        <span>CMYK: 0, 22, 100, 0</span>
+                    </div>
+                </div>
+
+                <div class="color-card" style="grid-column: span 2; border: 1px solid var(--monkeds-cyan);">
+                    <div class="color-swatch" style="background: #0ea5e9;"></div>
+                    <div class="color-info">
+                        <strong>Azul Cyber Viewport (Acento Digital 3D)</strong>
+                        <span>HEX: #0EA5E9 | RGB: 14, 165, 233 | CMYK: 79, 23, 0, 0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>© 2026 Monkeds - Documento Interno</span>
+            <span>Página 1 de 4</span>
+        </div>
+    </div>
+
+    <!-- PAGINA 2: TIPOGRAFÍA Y MATRIZ DE CONTRASTE -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <h2>MONKEDS.PE</h2>
+                <span>Manual de Identidad & UI Kit v2.0</span>
+            </div>
+
+            <h3 class="section-title">3. Jerarquía Tipográfica Web (Familia Inter)</h3>
+            <div class="ui-sample-box typography-spec">
+                <div class="type-item">
+                    <h1 style="font-size: 1.4rem; font-weight: 900;">Encabezado H1 - Título Principal Hero (28px / Black)</h1>
+                    <span class="type-label">&lt;h1&gt; / Inter Black</span>
+                </div>
+                <div class="type-item">
+                    <h2 style="font-size: 1.15rem; font-weight: 800;">Encabezado H2 - Título de Sección (22px / ExtraBold)</h2>
+                    <span class="type-label">&lt;h2&gt; / Inter ExtraBold</span>
+                </div>
+                <div class="type-item">
+                    <h3 style="font-size: 0.95rem; font-weight: 700;">Encabezado H3 - Título Tarjeta / Modelo (18px / Bold)</h3>
+                    <span class="type-label">&lt;h3&gt; / Inter Bold</span>
+                </div>
+                <div class="type-item">
+                    <h4 style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--monkeds-slate);">Encabezado H4 - Subtítulo Técnico (14px / Bold Caps)</h4>
+                    <span class="type-label">&lt;h4&gt; / Inter Bold Caps</span>
+                </div>
+                <div class="type-item" style="border-bottom: none;">
+                    <p style="font-size: 0.78rem; color: #334155; line-height: 1.4;">
+                        Párrafo Estándar: Esculturas coleccionables y piezas artesanales de alta precisión. Diseñadas mediante esculpido digital y producidas en resina técnica. Enlace interactivo: <a href="#" class="monkeds-link">Ver catálogo 3D</a>.
+                    </p>
+                    <span class="type-label">&lt;p&gt; &amp; &lt;a&gt;</span>
+                </div>
+            </div>
+
+            <h3 class="section-title">4. Citas y Frases de Estudio</h3>
+            <blockquote class="monkeds-quote">
+                "La precisión del render digital fusionada con el peso físico de la resina de alta definición." — Filosofía de Estudio Monkeds.
+            </blockquote>
+
+            <h3 class="section-title">5. Matriz de Contraste y Fondos</h3>
+            <div class="do-dont-grid">
+                <div class="box-sample" style="background: #111111; color: #ffc700;">
+                    <span class="badge-ok">CORRECTO</span>
+                    MONKEDS
+                </div>
+                <div class="box-sample" style="background: #ffc700; color: #ffffff;">
+                    <span class="badge-fail">INCORRECTO</span>
+                    MONKEDS
+                </div>
+                <div class="box-sample" style="background: #f9fafb; color: #111111; border: 1px solid #cbd5e1;">
+                    <span class="badge-ok">CORRECTO</span>
+                    MONKEDS
+                </div>
+                <div class="box-sample" style="background: #64748b; color: #0ea5e9;">
+                    <span class="badge-fail">INCORRECTO</span>
+                    MONKEDS
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>© 2026 Monkeds - Documento Interno</span>
+            <span>Página 2 de 4</span>
+        </div>
+    </div>
+
+    <!-- PAGINA 3: UI KIT (BOTONES, FORMULARIOS Y TABLAS) -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <h2>MONKEDS.PE</h2>
+                <span>Manual de Identidad & UI Kit v2.0</span>
+            </div>
+
+            <h3 class="section-title">6. Sistema de Botones y Estados Interaction</h3>
+            <div class="ui-sample-box">
+                <p style="font-size: 0.72rem; color: var(--monkeds-slate); margin-bottom: 10px;">Muestras de estados interactivos para botones del sitio web:</p>
+                <div class="btn-group">
+                    <button class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i> Comprar (Primario)</button>
+                    <button class="btn btn-dark"><i class="fa-solid fa-cube"></i> Ver STL (Secundario)</button>
+                    <button class="btn btn-cyan"><i class="fa-solid fa-wand-magic-sparkles"></i> Render 3D</button>
+                    <button class="btn btn-disabled" disabled><i class="fa-solid fa-lock"></i> Agotado (Disabled)</button>
+                </div>
+            </div>
+
+            <h3 class="section-title">7. Componentes de Formulario (UI)</h3>
+            <fieldset class="monkeds-fieldset">
+                <legend class="monkeds-legend">Consulta de Cotización / Proyecto 3D</legend>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="monkeds-label">Nombre del Cliente / Estudio</label>
+                        <input type="text" class="monkeds-input" value="Estudio Escultura" placeholder="Tu nombre...">
+                    </div>
+                    <div class="form-group">
+                        <label class="monkeds-label">Campo Enfocado (Focus)</label>
+                        <input type="text" class="monkeds-input" style="border-color: var(--monkeds-cyan); box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);" value="info@monkeds.pe">
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label class="monkeds-label">Campo Deshabilitado (Disabled)</label>
+                        <input type="text" class="monkeds-input" disabled value="Código de Descuento Especial (No disponible)">
+                    </div>
+                </div>
+            </fieldset>
+
+            <h3 class="section-title">8. Tablas de Datos Técnicos</h3>
+            <table class="monkeds-table">
+                <thead>
+                    <tr>
+                        <th>Modelo / Pieza</th>
+                        <th>Escala</th>
+                        <th>Material</th>
+                        <th>Estado Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Busto Cyber Monk</strong></td>
+                        <td>1/6 (22 cm)</td>
+                        <td>Resina ABS-Like</td>
+                        <td><span style="color: #22c55e; font-weight: 700;">● Disponible</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Artisan Keycap V1</strong></td>
+                        <td>MX Profile</td>
+                        <td>Resina UV Alta Detalle</td>
+                        <td><span style="color: var(--monkeds-cyan); font-weight: 700;">● Pre-orden</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meca Mech Sculpture</strong></td>
+                        <td>1/4 (35 cm)</td>
+                        <td>Filamento Tough / Resina</td>
+                        <td><span style="color: #ef4444; font-weight: 700;">● Agotado</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="doc-footer">
+            <span>© 2026 Monkeds - Documento Interno</span>
+            <span>Página 3 de 4</span>
+        </div>
+    </div>
+
+    <!-- PAGINA 4: ICONOS, REDES Y EMPAQUE -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <h2>MONKEDS.PE</h2>
+                <span>Manual de Identidad & UI Kit v2.0</span>
+            </div>
+
+            <h3 class="section-title">9. Estilo Iconográfico Vectorial</h3>
+            <div class="icons-grid">
+                <div class="icon-box active-digital">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>3D Mesh</span>
+                </div>
+                <div class="icon-box">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Sculpt</span>
+                </div>
+                <div class="icon-box">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Layers</span>
+                </div>
+                <div class="icon-box active-digital">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Render</span>
+                </div>
+                <div class="icon-box">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Print 3D</span>
+                </div>
+                <div class="icon-box">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span>Stock</span>
+                </div>
+            </div>
+
+            <h3 class="section-title">10. Aplicación en Redes Sociales (Avatar)</h3>
+            <p style="font-size: 0.8rem; color: var(--monkeds-slate); margin-bottom: 15px;">
+                Para avatares circulares (Instagram, TikTok, WhatsApp Business), utilizar siempre <code style="background: #e2e8f0; padding: 2px 4px; border-radius: 3px;">log_head.svg</code> sobre fondo Blanco Galería con acento de marca.
+            </p>
+            <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 25px;">
+                <!-- AVATAR CON FONDO BLANCO RESTAURADO -->
+                <div style="width: 80px; height: 80px; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center; border: 2px solid var(--monkeds-gold); box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <img src="log_head.svg" alt="Avatar IG Blanco" style="width: 50px; height: 50px; object-fit: contain;">
+                </div>
+                <div style="font-size: 0.8rem; color: var(--monkeds-slate);">
+                    <strong>Avatar Oficial Redes (1080 x 1080 px)</strong><br>
+                    Isotipo centrado al 60% sobre fondo Blanco Galería con borde en Amarillo Industrial.
+                </div>
+            </div>
+
+            <h3 class="section-title">11. Etiquetado y Empaque Físico</h3>
+            <div style="border: 2px dashed var(--monkeds-slate); padding: 25px; border-radius: 8px; background: #fff; text-align: center; position: relative;">
+                <span style="position: absolute; top: 10px; right: 10px; background: #e0f2fe; color: #0284c7; font-size: 0.65rem; font-weight: 800; padding: 3px 8px; border-radius: 4px; font-family: monospace;">SKU: MKD-3D-2026</span>
+                <img src="logo_y_nombre.svg" alt="Logo Empaque" style="max-height: 45px; margin-bottom: 12px;">
+                <div style="font-size: 0.75rem; color: var(--monkeds-slate); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px;">Escultura Digital & Arte Coleccionable</div>
+                <div style="display: inline-block; background: #ffc700; color: #111111; font-weight: 800; font-size: 0.72rem; padding: 6px 18px; border-radius: 4px;">PIEZA DE AUTOR - EDICIÓN LIMITADA</div>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>© 2026 Monkeds - Documento Interno</span>
+            <span>Página 4 de 4</span>
+        </div>
+    </div>
+
+</body>
+</html>
