@@ -57,7 +57,7 @@
             justify-content: space-between;
             align-items: center;
             -webkit-font-smoothing: antialiased;
-            user-select: none;
+            user-select: auto; 
         }
 
         /* Layout Principal */
@@ -101,6 +101,8 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-6px); }
         }
+
+
 
         .right-column {
             display: flex;
@@ -162,7 +164,7 @@
 
         /* Barra de Progreso Industrial */
         .progress-track {
-            height: 11px;
+            height: 8px;
             background-color: var(--monkeds-border);
             border-radius: 20px;
             overflow: hidden;
@@ -172,8 +174,8 @@
 
         .progress-fill {
             height: 100%;
-            width: 10%;
-            border-radius: 20px;
+            width: 20%;
+            border-radius: 5px;
             background: repeating-linear-gradient(
                 -45deg,
                 var(--monkeds-gold),
@@ -181,8 +183,8 @@
                 var(--monkeds-black) 12px,
                 var(--monkeds-black) 24px
             );
-            background-size: 34px 100%;
-            animation: stripe-move 1.1s linear infinite;
+            background-size: 10spx 100%;
+            animation: stripe-move 4s linear infinite;
         }
 
         @keyframes stripe-move {
@@ -204,7 +206,7 @@
             text-decoration: none;
             padding: 11px 16px;
             border-radius: 6px;
-            margin-top: 0.1rem;
+            margin-top: 1.6em;
             transition: var(--transition-smooth);
             box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
             user-select: auto;
